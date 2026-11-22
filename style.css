@@ -1,0 +1,61 @@
+/* Ebb site. Palette follows the app: dusty rose accent, soft lavender wash, warm ink. */
+:root {
+  --bg: #fbf8fa;
+  --surface: #ffffff;
+  --ink: #2b2230;
+  --muted: #6c6272;
+  --line: #ece4ec;
+  --rose: #b85c7c;
+  --rose-soft: #f7e8ee;
+  --lavender: #f1ecf7;
+  --sage: #4f8a72;
+  --font-display: "Outfit", "Avenir Next", system-ui, sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #18141a; --surface: #221d25; --ink: #efe8f1; --muted: #a99fae; --line: #3a3240;
+    --rose: #e79bb5; --rose-soft: #3b2530; --lavender: #2a2531; --sage: #8fcdb1; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #18141a; --surface: #221d25; --ink: #efe8f1; --muted: #a99fae; --line: #3a3240;
+  --rose: #e79bb5; --rose-soft: #3b2530; --lavender: #2a2531; --sage: #8fcdb1; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(--font-body); }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 0 72px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header.site { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 22px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font: 600 20px/1 var(--font-display); }
+.mark { width: 30px; height: 30px; }
+nav.site { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; }
+nav.site a { color: var(--muted); text-decoration: none; }
+nav.site a[aria-current="page"], nav.site a:hover, nav.site a:focus-visible { color: var(--rose); }
+h1 { font: 700 clamp(32px, 6vw, 46px)/1.1 var(--font-display); margin: 28px 0 12px; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font: 600 22px/1.3 var(--font-display); margin: 40px 0 10px; text-wrap: balance; }
+h3 { font: 600 17px/1.35 var(--font-display); margin: 24px 0 6px; }
+p, li { max-width: 68ch; }
+p { margin: 0 0 14px; }
+ul { padding-left: 20px; margin: 0 0 14px; display: grid; gap: 6px; }
+a { color: var(--rose); }
+.lede { font-size: 19px; color: var(--muted); max-width: 58ch; }
+.meta { color: var(--muted); font-size: 14px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin: 18px 0; }
+.panel.soft { background: var(--rose-soft); border-color: transparent; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 20px 0; }
+.grid .panel { margin: 0; }
+.grid h3 { margin-top: 0; }
+.table-box { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); margin: 16px 0; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; color: var(--muted); font-size: 13px; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+.email { font: 600 18px/1.3 var(--font-body); user-select: all; color: var(--ink); }
+.hero { background: linear-gradient(160deg, var(--rose-soft), var(--lavender)); border-radius: 24px; padding: 36px 28px; margin-top: 8px; }
+.hero h1 { margin-top: 0; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.badges span { background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: 14px; font-weight: 500; }
+footer.site { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+footer.site a { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; border-radius: 4px; }
